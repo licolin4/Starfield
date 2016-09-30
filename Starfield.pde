@@ -33,11 +33,18 @@ class NormalParticle
 	}
 	void move()
 	{
-		myX = myX + Math.sin(angle)*speed;
-		myY = myY + Math.cos(angle)*speed;
+		myX = myX + Math.cos(angle)*speed;
+		myY = myY + Math.sin(angle)*speed;
+		if(myX < 0 || myX > 600 || myY < 0 ||myY > 600)
+			{
+				myX = 250;
+				myY = 0;
+				angle = Math.random() * Math.PI;
+			}
 	}
 	void show()
-	{	fill((float)myColor*(float)(myX-myY),(float)myColor*(float)(angle),(float)myColor*(float)(speed));
+	{	
+		fill((float)myColor+10,(float)myColor+50,(float)myColor+100);
 		ellipse((float)myX,(float)myY,10,10);
 	}
 	//your code here
