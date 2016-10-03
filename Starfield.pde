@@ -56,9 +56,31 @@ interface Particle
 class OddballParticle //uses an interface
 {
 	//your code here
+	int myA, myB;
+	OddballParticle()
+	{
+		myA = 300;
+		myB = 300;
+	}
+	void show()
+	{
+		fill(255,0,100);
+		rect(myA, myB, 20,20);
+	}
 }
 class JumboParticle //uses inheritance
 {
 	//your code here
+	int myC, myD;
+	JumboParticle(int x, int y)
+	{
+		myC = x;
+		myD = y;
+	}
+	void show()
+	{
+		fill(0,255,100);
+		triangle(myC, myD, (float)Math.cos(2.03), (float)Math.sin(2.03), 100, 100);
+	}
 }
 
