@@ -9,6 +9,7 @@ void setup()
 	{
 		one[i]= new NormalParticle();
 	}
+
 }
 void draw()
 {
@@ -31,7 +32,7 @@ class NormalParticle
 		speed=Math.random()*10;
 		angle=Math.PI;
 	}
-	void move()
+	public void move()
 	{
 		myX = myX + Math.cos(angle)*speed;
 		myY = myY + Math.sin(angle)*speed;
@@ -42,16 +43,17 @@ class NormalParticle
 				angle = Math.random() * Math.PI;
 			}
 	}
-	void show()
+	public void show()
 	{	
 		fill((float)myColor+10,(float)myColor+50,(float)myColor+100);
-		ellipse((float)myX,(float)myY,10,10);
+		ellipse((float)myX,(float)myY,(float)speed,(float)speed);
 	}
 	//your code here
 }
 interface Particle
 {
 	//your code here
+	public void show();
 }
 class OddballParticle //uses an interface
 {
@@ -62,25 +64,19 @@ class OddballParticle //uses an interface
 		myA = 300;
 		myB = 300;
 	}
-	void show()
+	public void show()
 	{
 		fill(255,0,100);
 		rect(myA, myB, 20,20);
 	}
 }
-class JumboParticle //uses inheritance
+class JumboParticle extends NormalParticle//uses inheritance
 {
 	//your code here
-	int myC, myD;
-	JumboParticle(int x, int y)
+	JumboParticle()
 	{
-		myC = x;
-		myD = y;
+		speed=50;
 	}
-	void show()
-	{
-		fill(0,255,100);
-		triangle(myC, myD, (float)Math.cos(2.03), (float)Math.sin(2.03), 100, 100);
-	}
+
 }
 
